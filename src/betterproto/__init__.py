@@ -1361,7 +1361,7 @@ class Message(ABC):
 
     # For compatibility with other libraries.
     @classmethod
-    def FromString(cls: Type[T], data: bytes) -> T:
+    def FromString(cls: Type[T], s: bytes) -> T:
         """
         Parse the binary encoded Protobuf into this message instance. This
         returns the instance itself and is therefore assignable and chainable.
@@ -1381,7 +1381,7 @@ class Message(ABC):
         :class:`Message`
             The initialized message.
         """
-        return cls().parse(data)
+        return cls().parse(s)
 
     def to_dict(
         self, casing: Casing = Casing.CAMEL, include_default_values: bool = False
