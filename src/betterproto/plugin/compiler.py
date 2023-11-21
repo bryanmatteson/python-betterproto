@@ -46,6 +46,5 @@ def outputfile_compiler(output_file: OutputTemplate) -> str:
     )
     return black.format_str(
         src_contents=code,
-        lines=120,
-        mode=black.Mode(),
+        mode=black.Mode(line_length=120),
     )
